@@ -8,3 +8,6 @@ The client seed, which is unique to us, is paired with a server seed utilizing S
 ## Documentation
 - [Node Crypto](https://nodejs.org/api/crypto.html)
 - [Open SSL's implementation of SHA256](https://www.openssl.org/docs/man1.1.1/man3/SHA256.html)
+
+## Getting Started
+Download the repo, then run `npm run start`.
