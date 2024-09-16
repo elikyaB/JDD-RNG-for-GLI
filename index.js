@@ -1,7 +1,7 @@
 import { jogoDoDadoRNG } from "./rng.js";
 
 let numberOfTests = 2500000
-
+let resultArray = []
 let startDate = Date.now()
 let buckets = {
   "1": 0,
@@ -20,6 +20,7 @@ let buckets = {
 }
 for (let i=0; i<numberOfTests; i++) {
   const result = jogoDoDadoRNG()
+  resultArray.push(result)
   if (result == 1) {buckets["1"]++}
   else if (result < 2) {buckets["<2"]++}
   else if (result < 10) {buckets["<10"]++}  
@@ -40,4 +41,5 @@ for (let k of Object.keys(buckets)) {
 }
 
 console.log(buckets)
+console.log("average: ", resultArray.reduce((p, v) => p+v)/numberOfTests)
 console.log(Date.now()-startDate)
