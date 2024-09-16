@@ -49,8 +49,7 @@ export function genCrashPointFromHash(serverSeed) {
   const h = parseInt(hash.slice(0, 52 / 4), 16);
   const e = Math.pow(2, 52);
   const r = h/e // random number
-  const k = 7 // decay constant
-  // console.log(Math.exp(-k*r))
+  const k = 20 // decay constant
   return min + Math.ceil((max-min)*(Math.exp(-k*r)))
 }
 
