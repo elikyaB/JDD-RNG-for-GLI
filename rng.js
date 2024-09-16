@@ -44,12 +44,12 @@ export function genCrashPointFromHash(serverSeed) {
     .digest("hex");
 
   // In 1 of 101 games the game crashes instantly.
-  if (divisible(hash, 98)) return min;
+  if (divisible(hash, 33)) return min;
   // Use the most significant 52 bits from the hash to calculate the crash point
   const h = parseInt(hash.slice(0, 52 / 4), 16);
   const e = Math.pow(2, 52);
   const r = h/e // random number
-  const k = 5 // decay constant
+  const k = 7 // decay constant
   // console.log(Math.exp(-k*r))
   return min + Math.ceil((max-min)*(Math.exp(-k*r)))
 }
